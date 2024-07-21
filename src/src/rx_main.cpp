@@ -1807,14 +1807,14 @@ static void updateBindingMode()
         ExitBindingMode();
     }
 
-    // If the power on counter is >=3, enter binding, the counter will be reset after 2s
-    else if (!InBindingMode && config.GetPowerOnCounter() >= 3)
+    // If the power on counter is >=10, enter binding, the counter will be reset after 2s
+    else if (!InBindingMode && config.GetPowerOnCounter() >= 10)
     {
 #if defined(PLATFORM_ESP32) || defined(PLATFORM_ESP8266)
         // Never enter wifi if forced to binding mode
         webserverPreventAutoStart = true;
 #endif
-        DBGLN("Power on counter >=3, enter binding mode");
+        DBGLN("Power on counter >=10, enter binding mode");
         EnterBindingMode();
     }
 
